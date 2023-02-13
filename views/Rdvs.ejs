@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- google font import - poppin - -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
+    <title>FabriClinic Dashboard</title>
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="IMAGE/logogo.png" alt="">
+            </div>
+            <span class="logo_name"><h3>FabriClinic<h3></span>
+        </div>
+        <div class="menu-items">
+            <ul class="nav-links">
+                <!-- <li><a href="#">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Tableau de bord</span>
+                </a></li> -->
+                <li><a href="/">
+                    <i class="uil uil-user-md"></i>
+                    <span class="link-name">Patients</span>
+                </a></li>                
+                <li><a href="/Rdvs">
+                    <i class="uil uil-calendar-alt"></i>
+                    <span class="link-name">Rendez-vous</span>
+                </a></li>
+                <li><a href="/Graph">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Analytics</span>
+                </a></li>
+            </ul>
+            <ul>
+                <li>                
+                    <div class="box box0">
+                    <div class="card-content">
+                      <span class="card-title">N° des RDVs</span>
+                      <h4 id="total-rdvs"></h4>
+                    </div>
+                    <script>
+                        // Récupérer le nombre total de rdvs
+                        var totalRdvs = <%= Rdvs.length %>;
+                      
+                        // Afficher le nombre total de rdvs dans l'élément HTML correspondant
+                        document.getElementById("total-rdvs").innerHTML = totalRdvs;
+                      </script>
+                  </div>
+                </li>
+            </ul>
+
+            <ul class="logout-mod">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                <span class="link-name">Déconnexion</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-moon"></i>
+                <span class="link-name">Dark Mode</span>
+                </a>
+                 <div class="mode-toggle">
+                    <span class="switch"></span>
+                  </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="cherchez ici...">
+            </div>
+            
+            <!--<img src="images/profile.jpg" alt="">-->
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                  
+
+                <div class="boxes">
+
+                    <div class="box box1">
+                       <a href="formrdv">
+                        <i class="uil uil-plus-circle"></i>
+
+                        <span class="number">Ajouter</span>
+                       </a>
+                    </div>
+                    <div class="box box2">
+                       <a href="">
+                        <i class="uil uil-edit"></i>
+                        
+                        <span class="number">Modifier</span>
+                       </a>
+                    </div>
+                    <div class="box box3">
+                       <a href="suprdv">
+                        <i class="uil uil-trash-alt"></i>
+                        
+                        <span class="number">Supprimer</span>
+                       </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-clock-three"></i>
+                    <span class="text">Liste des Rendez-vous</span>
+                </div>
+
+                <div class="activity-data">
+                        
+                    <div class="data names">
+                        
+                        <span class="TITLI">CODEP</span>
+
+
+                    </div>
+                    <div class="data email">
+                        
+                        <span class="TITLI">NOMP</span>
+
+
+
+                    </div>
+                    <div class="data joined">
+                        
+                        <span class="TITLI">DATE_RDV</span>
+
+
+                    </div>
+                    <div class="data type">
+                        
+                        <span class="TITLI">CRENEAU</span>
+
+
+
+
+                    </div>
+                </div>
+
+                <% Rdvs.forEach(element=>{%>
+                    <div class="activity-data">
+                        
+                        <div class="data names">
+                            
+                            <span class="data-title"><%= element.CODEP %></span>
+    
+    
+                        </div>
+                        <div class="data email">
+                            
+                            <span class="data-title"><%= element.NOMP %></span>
+    
+    
+    
+                        </div>
+                        <div class="data joined">
+                            
+                            <span class="data-title"><%= element.DATE_RDV.toString().slice(4,15) %></span>
+    
+    
+                        </div>
+                        <div class="data type">
+                            
+                            <span class="data-title"><%= element.CRENEAU %></span>
+    
+    
+    
+    
+                        </div>
+                    </div>
+                <%})%>    
+            </div>
+        </div>
+    </section>
+
+    <script src="JS/index.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- Foreign key remover
+
+
+ALTER TABLE rdvs DROP FOREIGN KEY FK_RENDEVS; -->

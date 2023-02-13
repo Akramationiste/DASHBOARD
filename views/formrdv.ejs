@@ -1,0 +1,120 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="CSS/style.css">
+      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+      <!-- google font import - poppin - -->
+      
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
+      <title>FabriClinic Dashboard</title>
+  </head>
+  <body>
+      <nav>
+          <div class="logo-name">
+              <div class="logo-image">
+                  <img src="IMAGE/logogo.png" alt="">
+              </div>
+              <span class="logo_name"><h3>FabriClinic<h3></span>
+          </div>
+          <div class="menu-items">
+              <ul class="nav-links">
+                  <!-- <li><a href="#">
+                      <i class="uil uil-estate"></i>
+                      <span class="link-name">Tableau de bord</span>
+                  </a></li> -->
+                  <li><a href="/">
+                      <i class="uil uil-user-md"></i>
+                      <span class="link-name">Patients</span>
+                  </a></li>                
+                  <li><a href="Rdvs">
+                      <i class="uil uil-calendar-alt"></i>
+                      <span class="link-name">Rendez-vous</span>
+                  </a></li>
+                  <li><a href="Graph">
+                      <i class="uil uil-chart"></i>
+                      <span class="link-name">Analytics</span>
+                  </a></li>
+  
+  
+              </ul>
+  
+              <ul class="logout-mod">
+                  <li><a href="#">
+                      <i class="uil uil-signout"></i>
+                  <span class="link-name">Déconnexion</span>
+                  </a></li>
+                  <li><a href="#">
+                      <i class="uil uil-moon"></i>
+                  <span class="link-name">Dark Mode</span>
+                  </a>
+                   <div class="mode-toggle">
+                      <span class="switch"></span>
+                    </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      
+      <section class="dashboard">
+          <div class="top">
+              <i class="uil uil-bars sidebar-toggle"></i>
+  
+              <div class="search-box">
+                  <i class="uil uil-search"></i>
+                  <input type="text" placeholder="cherchez ici...">
+              </div>
+              
+              <!--<img src="images/profile.jpg" alt="">-->
+          </div>
+  
+          <div class="dash-content">
+              <div class="overview">
+                  <div class="title">
+                      <i class="uil uil-tachometer-fast-alt"></i>
+                      <span class="text">Formulaire Rdvs</span>
+                  </div>
+  
+  
+                  <div class="container">
+                      <div class="title">Ajouter un rendez-vous</div>
+                      <div class="content">
+                        <form action="formrdv" method="post">
+                          <div class="user-details">
+                            <div class="input-box">
+                              <span class="details">CODEP</span>
+                              <input name="CODEP" type="text" placeholder="Entez un code" required>
+                            </div>
+                            <div class="input-box">
+                              <span class="details">NOMP</span>
+                              <input name="NOMP" type="text" placeholder="Entrez le nom" required>
+                            </div>
+                            <div class="input-box">
+                              <span class="details">DATE_RDV</span>
+                              <input name="DATE_RDV" type="date" placeholder="Entrez la date" required>
+                            </div>
+                            <div class="input-box">
+                              <span class="details">CRENEAU</span>
+                              <input name="CRENEAU" type="text" placeholder="Entrez le creneau" required>
+                            </div>
+                            </div>
+
+                          </div>
+                        
+                          <div class="button">
+                            <input type="submit" value="Enregistrer">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+
+
+      <script src="JS/index.js"></script>
+  </body>
+  </html>
